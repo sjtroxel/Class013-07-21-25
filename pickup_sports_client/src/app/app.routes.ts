@@ -9,5 +9,9 @@ export const routes: Routes = [
     {
         path: "events",
         loadComponent: () => import("./features/events/events").then((c) => c.Events)
-    }
+    },
+    {
+        path: 'login',
+        loadComponent: () => import("./features/auth/login/login").then((c) => c.Login)
+    },
 ];
