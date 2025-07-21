@@ -1,9 +1,18 @@
 import { Routes } from '@angular/router';
-import { BookListComponent } from './book-list/book-list';
+import { authGuard } from './auth-guard';
+import { noAuthGuard } from './no-auth-guard';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: BookListComponent
-    }
+  {
+    path: '',
+    loadComponent: () =>
+      import('./book-list/book-list').then((c) => c.BookListComponent),
+    canActivate: [authGuard],
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login').then((c) => c.LoginComponent),
+	canActivate: [noAuthGuard],
+  },
 ];
