@@ -20,7 +20,7 @@ export class BookService {
   }
 
   createBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.apiUrl, { book });
+    return this.http.post<Book>(this.apiUrl, book);
   }
 
   updateBook(book: Book): Observable<Book> {

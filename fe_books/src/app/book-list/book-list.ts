@@ -27,6 +27,7 @@ export class BookListComponent implements OnInit {
   }
 
   addBook(): void {
+    console.log('Adding book:', this.newBook); // Debug log
     this.bookService.createBook(this.newBook).subscribe((book) => {
       this.books.push(book);
       this.newBook = new Book(); // reset form
